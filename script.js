@@ -6,7 +6,7 @@ const terminal = document.createElement("div");
 terminal.setAttribute("id", "terminal");
 body.appendChild(terminal);
 
-const terminalOutput = document.createElement("pre");
+const terminalOutput = document.createElement("div");
 terminalOutput.setAttribute("id", "terminalOutput");
 terminal.appendChild(terminalOutput);
 
@@ -27,7 +27,7 @@ terminalInputAlias.focus();
 
 // create the initial text for the terminalOutput
 setTimeout(function () {
-  loopLines(asciiArt, "", 80);
+  loopAsciiLines(asciiArt, "", 1);
 }, 100);
 
 // create the logic for updating the innerHTML of the terminalOutput whenever the user types in the terminalInput
@@ -75,21 +75,25 @@ function handleCommand(command) {
       terminalOutput.innerHTML += prefix + command + "<br>";
       loopLines(helpText, "", 80);
       break;
-    case "whoami":
-      terminalOutput.innerHTML += prefix + "whoami: information about me<br>";
+    case "about":
+      terminalOutput.innerHTML += prefix + command + "<br>";
+      loopLines(aboutText, "", 100);
       break;
     case "projects":
-      terminalOutput.innerHTML += prefix + "projects: list all projects<br>";
+      terminalOutput.innerHTML += prefix + command + "<br>";
+      loopLines(projectsText, "", 100);
       break;
     case "resume":
-      terminalOutput.innerHTML += prefix + "resume: display resume<br>";
+      terminalOutput.innerHTML += prefix + command + "<br>";
+      loopLines(resumeText, "", 100);
       break;
     case "skills":
-      terminalOutput.innerHTML += prefix + "skills: list all skills<br>";
+      terminalOutput.innerHTML += prefix + command + "<br>";
+      loopLines(skillsText, "", 100);
       break;
     case "contact":
-      terminalOutput.innerHTML +=
-        prefix + "contact: display contact information<br>";
+      terminalOutput.innerHTML += prefix + command + "<br>";
+      loopLines(contactText, "", 100);
       break;
     // case "theme":
     //   terminalOutput.innerHTML += prefix + "theme: change the theme<br>";
@@ -111,32 +115,70 @@ body.addEventListener("click", function () {
   terminalInputAlias.focus();
 });
 
-// function to add a line to the terminalOutput with a specific style and time with typing effect
-function addLine(text, style, time) {
-  const pre = document.createElement("pre");
-  pre.style = style;
-  terminalOutput.appendChild(pre);
-  const increment = 10;
+function addAsciiLine(text, style, time) {
+  const terminalOutput = document.getElementById('terminalOutput');
+  const p = document.createElement("pre");
+  p.className = style;
+  terminalOutput.appendChild(p);
 
-  const randomChar = () =>
-    String.fromCharCode(Math.floor(Math.random() * 94) + 33);
+  const randomChar = () => String.fromCharCode(Math.floor(Math.random() * 94) + 33);
 
-  for (let i = 0; i < text.length; i++) {
-    setTimeout(function () {
-      const span = document.createElement("span");
-      span.innerHTML = text.charAt(i) === " " ? "&nbsp;" : randomChar();
-      pre.appendChild(span);
+  let index = 0;
+  const typeWriter = () => {
+    if (index < text.length) {
+      const actualChar = text.charAt(index);
+      const isSpace = actualChar === ' ';
+      const span = document.createElement('span');
+      span.innerHTML = isSpace ? '&nbsp;' : randomChar();
+      p.appendChild(span);
 
-      setTimeout(function () {
-        span.innerHTML = text.charAt(i) === " " ? "&nbsp;" : text.charAt(i);
-      }, Math.floor(Math.random() * time) + 10);
-    }, time + i * increment);
-  }
+      // Random delay before revealing the actual character
+      const revealDelay = isSpace ? 0 : Math.floor(Math.random() * time);
+      setTimeout(() => {
+        span.innerHTML = actualChar;
+      }, revealDelay);
+
+      index++;
+      setTimeout(typeWriter, isSpace ? 0 : time);
+    }
+  };
+
+  typeWriter();
 }
-// function to loop through the lines of text and add them to the terminalOutput
-function loopLines(lines, style, time) {
-  increment = 10;
-  lines.forEach((line, index) => {
-    addLine(line, style, time  + index * increment);
+
+
+
+function addTextLine(text, style, time) {
+  var t = "";
+  for (let i = 0; i < text.length; i++) {
+    if (text.charAt(i) == " " && text.charAt(i + 1) == " ") {
+      t += "&nbsp;&nbsp;";
+      i++;
+    } else {
+      t += text.charAt(i);
+    }
+  }
+  setTimeout(function () {
+    var next = document.createElement("p");
+    next.innerHTML = t;
+    next.className = style;
+
+    terminalOutput.appendChild(next);
+
+    window.scrollTo(0, document.body.offsetHeight);
+  }, time);
+}
+
+function loopAsciiLines(name, style, time) {
+  name.forEach(function(item, index) {
+    addAsciiLine(item, style, index * time);
   });
 }
+
+
+function loopLines(name, style, time) {
+  name.forEach(function (item, index) {
+    addTextLine(item, style, index * time);
+  });
+}
+
