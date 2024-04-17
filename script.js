@@ -29,9 +29,26 @@ terminalInputAlias.focus();
 
 currentInput = "";
 
-terminalInputAlias.addEventListener("input", function (event) {
-  terminalInput.innerHTML = terminalInputAlias.value;
-});
+function updateCaret() {
+  var caretPos = terminalInputAlias.selectionStart;
+  var textBeforeCaret = terminalInputAlias.value
+    .substring(0, caretPos)
+    .replace(/ /g, "&nbsp;");
+  var caretChar = terminalInputAlias.value[caretPos] || "&nbsp;";
+  var textAfterCaret = terminalInputAlias.value
+    .substring(caretPos + 1)
+    .replace(/ /g, "&nbsp;");
+  terminalInput.innerHTML =
+    textBeforeCaret +
+    "<span id='caret'>" +
+    caretChar +
+    "</span>" +
+    textAfterCaret;
+}
+updateCaret(); // call immediately to set the initial caret position
+
+terminalInputAlias.addEventListener("input", updateCaret);
+terminalInputAlias.addEventListener("keyup", updateCaret);
 
 terminalInputAlias.addEventListener("keyup", function (event) {
   if (event.key === "Enter") {

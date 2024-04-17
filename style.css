@@ -32,6 +32,18 @@ body {
 
 }
 
+#caret {
+  background-color: white;
+  color: black;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
 #terminalOutput {
     margin: 0;
     padding: 0;
