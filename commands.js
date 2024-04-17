@@ -81,7 +81,7 @@ const projectsText = [
   "      recommend music based on user preferences.",
   "    - Tech stack: React , Tailwind, Go , AWS API Gateway, AWS Lambda, DynamoDB",
   "  ",
-  "  Code Sydney          <a href='https://codesydney.com.au/' target='_blank'>codesydney.com.au</a>",
+  "  Code Sydney          <a href='https://www.code.sydney/' target='_blank'>codesydney.com.au</a>",
   "    - I am a mentor and active member of the Code Sydney community. This includes",
   "      mentoring students, attending meetups, and contributing to open source projects.",
   "  ",
