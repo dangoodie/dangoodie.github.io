@@ -1,6 +1,4 @@
 // Setting the variables for the terminal app
-import { asciiArt } from "./asciiArt.js";
-console.log(asciiArt);
 
 const body = document.querySelector("body");
 
@@ -11,7 +9,6 @@ body.appendChild(terminal);
 const terminalOutput = document.createElement("pre");
 terminalOutput.setAttribute("id", "terminalOutput");
 terminal.appendChild(terminalOutput);
-terminalOutput.innerHTML = asciiArt;
 
 const terminaInputPrefix = document.createElement("span");
 terminaInputPrefix.innerHTML = "visitor@dangoodie > ";
@@ -27,6 +24,11 @@ terminalInputAlias.setAttribute("type", "text");
 terminalInputAlias.setAttribute("id", "terminalInputAlias");
 terminal.appendChild(terminalInputAlias);
 terminalInputAlias.focus();
+
+// create the initial text for the terminalOutput
+setTimeout(function () {
+  loopLines(asciiArt, "", 80);
+}, 100);
 
 // create the logic for updating the innerHTML of the terminalOutput whenever the user types in the terminalInput
 let currentInput = "";
@@ -96,6 +98,7 @@ function handleCommand(command) {
     default:
       terminalOutput.innerHTML += prefix + command + " command not found<br>";
   }
+
 }
 
 // event listener for the blur event on the terminalInputAlias
@@ -106,3 +109,23 @@ terminalInputAlias.addEventListener("blur", function () {
 body.addEventListener("click", function () {
   terminalInputAlias.focus();
 });
+
+// function to add a line to the terminalOutput with a specific style and time with typing effect
+function addLine(text, style, time) {
+  const pre = document.createElement('pre');
+  pre.style = style;
+  terminalOutput.appendChild(pre);
+  const increment = 10;
+
+  for (let i = 0; i < text.length; i++) {
+    setTimeout(function () {
+      pre.innerHTML += text.charAt(i) === " " ? "&nbsp;" : text.charAt(i);
+    }, time + i * increment);
+  }
+}
+// function to loop through the lines of text and add them to the terminalOutput
+function loopLines(lines, style, time) {
+  lines.forEach((line, index) => {
+    addLine(line, style, time * index);
+  });
+}
