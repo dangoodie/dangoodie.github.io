@@ -10,25 +10,38 @@ terminalOutput = document.createElement("p");
 terminalOutput.setAttribute("id", "terminalOutput");
 terminal.appendChild(terminalOutput);
 
-terminaInputPrefix = document.createElement("p");
+terminaInputPrefix = document.createElement("span");
 terminaInputPrefix.innerHTML = "squid@dangoodie>";
 terminaInputPrefix.setAttribute("id", "terminalInputPrefix");
 terminal.appendChild(terminaInputPrefix);
 
-terminalInput = document.createElement("input");
-terminalInput.setAttribute("type", "text");
+terminalInput = document.createElement("span");
 terminalInput.setAttribute("id", "terminalInput");
 terminal.appendChild(terminalInput);
+
+terminalInputAlias = document.createElement("input");
+terminalInputAlias.setAttribute("type", "text");
+terminalInputAlias.setAttribute("id", "terminalInputAlias");
+terminal.appendChild(terminalInputAlias);
+terminalInputAlias.focus();
 
 // create the logic for updating the innerHTML of the terminalOutput whenever the user types in the terminalInput
 
 currentInput = "";
 
-terminalInput.addEventListener("keyup", function (event) {
-  if (event.keyCode === 13) {
-    currentInput = terminalInput.value;
+terminalInputAlias.addEventListener("input", function (event) {
+  terminalInput.innerHTML = terminalInputAlias.value;
+});
+
+terminalInputAlias.addEventListener("keyup", function (event) {
+  if (event.key === "Enter") {
+    currentInput = terminalInputAlias.value;
     handleCommand(currentInput);
-    terminalInput.value = "";
+    terminalInputAlias.value = "";
+    terminalInput.innerHTML = terminalInputAlias.value;
+    currentInput = "";
+
+    terminalInputAlias.focus();
   }
 });
 
@@ -40,7 +53,7 @@ function handleCommand(command) {
       terminalOutput.innerHTML += "<br>help: list all available commands";
       break;
     case "whoami":
-      terminalOutput.innerHTML += "<br>help: list all available commands";
+      terminalOutput.innerHTML += "<br>whoami: information about me";
       break;
     case "projects":
       terminalOutput.innerHTML += "<br>projects: list all projects";
@@ -64,3 +77,12 @@ function handleCommand(command) {
       terminalOutput.innerHTML += "<br>" + command + " command not found";
   }
 }
+
+// event listener for the blur event on the terminalInputAlias
+terminalInputAlias.addEventListener("blur", function () {
+  terminalInputAlias.focus();
+});
+
+body.addEventListener("click", function () {
+  terminalInputAlias.focus();
+});
