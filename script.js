@@ -73,27 +73,27 @@ function handleCommand(command) {
   switch (command) {
     case "help":
       terminalOutput.innerHTML += prefix + command + "<br>";
-      loopLines(helpText, "", 80);
+      loopLines(helpText, "", 10);
       break;
     case "about":
       terminalOutput.innerHTML += prefix + command + "<br>";
-      loopLines(aboutText, "", 100);
+      loopLines(aboutText, "", 10);
       break;
     case "projects":
       terminalOutput.innerHTML += prefix + command + "<br>";
-      loopLines(projectsText, "", 100);
+      loopLines(projectsText, "", 10);
       break;
-    case "resume":
-      terminalOutput.innerHTML += prefix + command + "<br>";
-      loopLines(resumeText, "", 100);
-      break;
+    // case "resume":
+    //   terminalOutput.innerHTML += prefix + command + "<br>";
+    //   loopLines(resumeText, "", 10);
+    //   break;
     case "skills":
       terminalOutput.innerHTML += prefix + command + "<br>";
-      loopLines(skillsText, "", 100);
+      loopLines(skillsText, "", 10);
       break;
     case "contact":
       terminalOutput.innerHTML += prefix + command + "<br>";
-      loopLines(contactText, "", 100);
+      loopLines(contactText, "", 10);
       break;
     // case "theme":
     //   terminalOutput.innerHTML += prefix + "theme: change the theme<br>";
@@ -116,20 +116,21 @@ body.addEventListener("click", function () {
 });
 
 function addAsciiLine(text, style, time) {
-  const terminalOutput = document.getElementById('terminalOutput');
+  const terminalOutput = document.getElementById("terminalOutput");
   const p = document.createElement("pre");
   p.className = style;
   terminalOutput.appendChild(p);
 
-  const randomChar = () => String.fromCharCode(Math.floor(Math.random() * 94) + 33);
+  const randomChar = () =>
+    String.fromCharCode(Math.floor(Math.random() * 94) + 33);
 
   let index = 0;
   const typeWriter = () => {
     if (index < text.length) {
       const actualChar = text.charAt(index);
-      const isSpace = actualChar === ' ';
-      const span = document.createElement('span');
-      span.innerHTML = isSpace ? '&nbsp;' : randomChar();
+      const isSpace = actualChar === " ";
+      const span = document.createElement("span");
+      span.innerHTML = isSpace ? "&nbsp;" : randomChar();
       p.appendChild(span);
 
       // Random delay before revealing the actual character
@@ -146,39 +147,37 @@ function addAsciiLine(text, style, time) {
   typeWriter();
 }
 
-
-
-function addTextLine(text, style, time) {
+function addLine(text, style, time) {
   var t = "";
+  var next = document.createElement("pre");
+  next.className = style;
+  terminalOutput.appendChild(next);
+
   for (let i = 0; i < text.length; i++) {
-    if (text.charAt(i) == " " && text.charAt(i + 1) == " ") {
-      t += "&nbsp;&nbsp;";
-      i++;
-    } else {
-      t += text.charAt(i);
-    }
+    (function (i) {
+      setTimeout(function () {
+        if (text.charAt(i) == " " && text.charAt(i + 1) == " ") {
+          t += "&nbsp;";
+          i++;
+        } else {
+          t += text.charAt(i);
+        }
+        next.innerHTML = t;
+        document.getElementById("terminal").scrollTop =
+          document.getElementById("terminal").scrollHeight;
+      }, time + 10 * i);
+    })(i);
   }
-  setTimeout(function () {
-    var next = document.createElement("p");
-    next.innerHTML = t;
-    next.className = style;
-
-    terminalOutput.appendChild(next);
-
-    window.scrollTo(0, document.body.offsetHeight);
-  }, time);
 }
 
 function loopAsciiLines(name, style, time) {
-  name.forEach(function(item, index) {
+  name.forEach(function (item, index) {
     addAsciiLine(item, style, index * time);
   });
 }
 
-
 function loopLines(name, style, time) {
   name.forEach(function (item, index) {
-    addTextLine(item, style, index * time);
+    addLine(item, style, index * time);
   });
 }
-

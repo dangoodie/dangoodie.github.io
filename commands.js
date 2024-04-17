@@ -42,7 +42,6 @@ const helpText = [
   "  about        learn more about me",
   "  projects     list all projects",
   "  skills       list all skills",
-  "  resume       display resume",
   "  contact      display contact information",
   "  clear        clear the terminal",
 ];
@@ -66,7 +65,27 @@ const aboutText = [
 
 const symphonAI = "https://github.com/symphonAI";
 const projectsText = [
+  "  ",
   "Most of my projects are hidden because of I am studying at university. ",
   "However I did make a music recommendation powered by AI and Spotify",
   'for a hackathon called <a href="' + symphonAI + '" target="_blank">SymphonAI</a>.',
+  "  ",
+];
+
+const skillsText = [
+  "  ",
+  "  Languages:    Go, Java, JavaScript, React, Python, HTML, CSS, SQL",
+  "  Frameworks:   React, Node.js, Express.JS, Next.JS, Bootstrap, Tailwind, Material-UI",
+  "  Databases:    MongoDB, PostgreSQL",
+  "  Tools:        AWS, Git, GitHub, Postman, VS Code",
+  "  ",
+];
+
+const contactText = [
+  "  ",
+  "  LinkedIn:  <a href='" + linkedin + "' target='_blank'>Daniel Gooden</a>",
+  "  GitHub:    <a href='" + github + "' target='_blank'>dangoodie</a>",
+  "  Email:     <a href='mailto:" + email + "'>" + email + "</a>",
+  //"Resume: <a href='" + resume + "' target='_blank'>resume</a>",
+  "  ",
 ];
