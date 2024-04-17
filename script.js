@@ -51,7 +51,7 @@ updateCaret(); // call immediately to set the initial caret position
 
 terminalInputAlias.addEventListener("input", updateCaret);
 
-terminalInputAlias.addEventListener("keyup", function (event) {
+terminalInputAlias.addEventListener("keydown", function (event) {
   if (event.key === "Enter") {
     currentInput = terminalInputAlias.value;
     handleCommand(currentInput);
@@ -67,7 +67,7 @@ terminalInputAlias.addEventListener("keyup", function (event) {
 // switch statement to handle the different commands that the user can input
 
 function handleCommand(command) {
-  prefix = terminaInputPrefix.innerHTML;
+  const prefix = terminaInputPrefix.innerHTML;
   switch (command) {
     case "help":
       terminalOutput.innerHTML += prefix + "help: list all available commands<br>";
