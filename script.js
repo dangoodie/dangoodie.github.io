@@ -11,7 +11,7 @@ terminalOutput.setAttribute("id", "terminalOutput");
 terminal.appendChild(terminalOutput);
 
 terminaInputPrefix = document.createElement("span");
-terminaInputPrefix.innerHTML = "squid@dangoodie>";
+terminaInputPrefix.innerHTML = "squid@dangoodie > ";
 terminaInputPrefix.setAttribute("id", "terminalInputPrefix");
 terminal.appendChild(terminaInputPrefix);
 
@@ -50,31 +50,31 @@ terminalInputAlias.addEventListener("keyup", function (event) {
 function handleCommand(command) {
   switch (command) {
     case "help":
-      terminalOutput.innerHTML += "<br>help: list all available commands";
+      terminalOutput.innerHTML += "help: list all available commands<br>";
       break;
     case "whoami":
-      terminalOutput.innerHTML += "<br>whoami: information about me";
+      terminalOutput.innerHTML += "whoami: information about me<br>";
       break;
     case "projects":
-      terminalOutput.innerHTML += "<br>projects: list all projects";
+      terminalOutput.innerHTML += "projects: list all projects<br>";
       break;
     case "resume":
-      terminalOutput.innerHTML += "<br>resume: display resume";
+      terminalOutput.innerHTML += "resume: display resume<br>";
       break;
     case "skills":
-      terminalOutput.innerHTML += "<br>skills: list all skills";
+      terminalOutput.innerHTML += "skills: list all skills<br>";
       break;
     case "contact":
-      terminalOutput.innerHTML += "<br>contact: display contact information";
+      terminalOutput.innerHTML += "contact: display contact information<br>";
       break;
     case "theme":
-      terminalOutput.innerHTML += "<br>theme: change the theme";
+      terminalOutput.innerHTML += "theme: change the theme<br>";
       break;
     case "clear":
       terminalOutput.innerHTML = "";
       break;
     default:
-      terminalOutput.innerHTML += "<br>" + command + " command not found";
+      terminalOutput.innerHTML += command + " command not found<br>";
   }
 }
 
