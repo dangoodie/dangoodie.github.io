@@ -59,39 +59,41 @@ terminalInputAlias.addEventListener("keyup", function (event) {
     currentInput = "";
 
     terminalInputAlias.focus();
+    updateCaret();
   }
 });
 
 // switch statement to handle the different commands that the user can input
 
 function handleCommand(command) {
+  prefix = terminaInputPrefix.innerHTML;
   switch (command) {
     case "help":
-      terminalOutput.innerHTML += "help: list all available commands<br>";
+      terminalOutput.innerHTML += prefix + "help: list all available commands<br>";
       break;
     case "whoami":
-      terminalOutput.innerHTML += "whoami: information about me<br>";
+      terminalOutput.innerHTML += prefix + "whoami: information about me<br>";
       break;
     case "projects":
-      terminalOutput.innerHTML += "projects: list all projects<br>";
+      terminalOutput.innerHTML += prefix + "projects: list all projects<br>";
       break;
     case "resume":
-      terminalOutput.innerHTML += "resume: display resume<br>";
+      terminalOutput.innerHTML += prefix + "resume: display resume<br>";
       break;
     case "skills":
-      terminalOutput.innerHTML += "skills: list all skills<br>";
+      terminalOutput.innerHTML += prefix + "skills: list all skills<br>";
       break;
     case "contact":
-      terminalOutput.innerHTML += "contact: display contact information<br>";
+      terminalOutput.innerHTML += prefix + "contact: display contact information<br>";
       break;
     case "theme":
-      terminalOutput.innerHTML += "theme: change the theme<br>";
+      terminalOutput.innerHTML += prefix + "theme: change the theme<br>";
       break;
     case "clear":
       terminalOutput.innerHTML = "";
       break;
     default:
-      terminalOutput.innerHTML += command + " command not found<br>";
+      terminalOutput.innerHTML += prefix + command + " command not found<br>";
   }
 }
 
