@@ -88,8 +88,9 @@ const skillsText = [
 
 const contactText = [
   "  ",
-  "  LinkedIn:  <a href='" + linkedin + "' target='_blank'>Daniel Gooden</a>",
-  "  GitHub:    <a href='" + github + "' target='_blank'>dangoodie</a>",
+  "  LinkedIn:  <a href='" + linkedin + "' target='_blank'>linkedin.com/in/daniel-gooden</a>",
+  "  GitHub:    <a href='" + github + "' target='_blank'>github.com/dangoodie</a>",
+  "  LeetCode:  <a href='https://leetcode.com/dangoodie/' target='_blank'>leetcode.com/dangoodie</a>",
   "  Email:     <a href='mailto:" + email + "'>" + email + "</a>",
   //"Resume: <a href='" + resume + "' target='_blank'>resume</a>",
   "  ",
