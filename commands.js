@@ -1,0 +1,96 @@
+var linkedin = "https://www.linkedin.com/in/daniel-gooden/";
+var github = "https://github.com/dangoodie";
+var email = "dan.gooden.dev@gmail.com";
+var resume = "https://drive.google.com/file/d/1" // need to fix
+
+//get current year
+const currentYear = new Date().getFullYear();
+
+const asciiArt = [
+  "© " + currentYear + " Daniel Gooden. All Rights Reserved.",
+  "+-------------------------------------------------------------------------------------+",
+  "|      ___           ___           ___                       ___           ___        |",
+  "|     /\\  \\         /\\  \\         /\\__\\          ___        /\\  \\         /\\__\\       |",
+  "|    /::\\  \\       /::\\  \\       /::|  |        /\\  \\      /::\\  \\       /:/  /       |",
+  "|   /:/\\:\\  \\     /:/\\:\\  \\     /:|:|  |        \\:\\  \\    /:/\\:\\  \\     /:/  /        |",
+  "|  /:/  \\:\\__\\   /::\\~\\:\\  \\   /:/|:|  |__      /::\\__\\  /::\\~\\:\\  \\   /:/  /         |",
+  "| /:/__/ \\:|__| /:/\\:\\ \\:\\__\\ /:/ |:| /\\__\\  __/:/\\/__/ /:/\\:\\ \\:\\__\\ /:/__/          |",
+  "| \\:\\  \\ /:/  / \\/__\\:\\/:/  / \\/__|:|/:/  / /\\/:/  /    \\:\\~\\:\\ \\/__/ \\:\\  \\          |",
+  "|  \\:\\  /:/  /       \\::/  /      |:/:/  /  \\::/__/      \\:\\ \\:\\__\\    \\:\\  \\         |",
+  "|   \\:\\/:/  /        /:/  /       |::/  /    \\:\\__\\       \\:\\ \\/__/     \\:\\  \\        |",
+  "|    \\::/__/        /:/  /        /:/  /      \\/__/        \\:\\__\\        \\:\\__\\       |",
+  "|     ~~            \\/__/         \\/__/                     \\/__/         \\/__/       |",
+  "|      ___           ___           ___           ___           ___           ___      |",
+  "|     /\\  \\         /\\  \\         /\\  \\         /\\  \\         /\\  \\         /\\__\\     |",
+  "|    /::\\  \\       /::\\  \\       /::\\  \\       /::\\  \\       /::\\  \\       /::|  |    |",
+  "|   /:/\\:\\  \\     /:/\\:\\  \\     /:/\\:\\  \\     /:/\\:\\  \\     /:/\\:\\  \\     /:|:|  |    |",
+  "|  /:/  \\:\\  \\   /:/  \\:\\  \\   /:/  \\:\\  \\   /:/  \\:\\__\\   /::\\~\\:\\  \\   /:/|:|  |__  |",
+  "| /:/__/_\\:\\__\\ /:/__/ \\:\\__\\ /:/__/ \\:\\__\\ /:/__/ \\:|__| /:/\\:\\ \\:\\__\\ /:/ |:| /\\__\\ |",
+  "| \\:\\  /\\ \\/__/ \\:\\  \\ /:/  / \\:\\  \\ /:/  / \\:\\  \\ /:/  / \\:\\~\\:\\ \\/__/ \\/__|:|/:/  / |",
+  "|  \\:\\ \\:\\__\\    \\:\\  /:/  /   \\:\\  /:/  /   \\:\\  /:/  /   \\:\\ \\:\\__\\       |:/:/  /  |",
+  "|   \\:\\/:/  /     \\:\\/:/  /     \\:\\/:/  /     \\:\\/:/  /     \\:\\ \\/__/       |::/  /   |",
+  "|    \\::/  /       \\::/  /       \\::/  /       \\::/__/       \\:\\__\\         /:/  /    |",
+  "|     \\/__/         \\/__/         \\/__/         ~~            \\/__/         \\/__/     |",
+  "+-------------------------------------------------------------------------------------+",
+  "Welcome to my website.                                                                 ",
+  "Please type 'help' for a list of commands.                                             ",
+];
+
+const helpText = [
+  "  ",
+  "  Available commands:",
+  "  help         list all available commands",
+  "  about        learn more about me",
+  "  projects     list all projects",
+  "  skills       list all skills",
+  "  contact      display contact information",
+  "  clear        clear the terminal",
+  "  ",
+];
+
+const aboutText = [
+  "                                                               ",
+  "Hi, I'm Daniel! 🔥",
+  "I'm a software engineer with a passion for technology who is studying",
+  "remotely at the University of New England in Armidale, Australia.",
+  "In 2010 I moved to Australia from the United States after completing",
+  "high school in Texas. I have been living in Australia ever since.",
+  "For many years I worked in the production industry as a ",
+  "touring Lighting Director. I have worked on a variety of productions",
+  "and currently work at the ABC in Sydney as the Lighting Director.",
+  "I have always had a passion for technology and have been coding",
+  "since I was a teenager. I am hoping in the future to transition",
+  "to a career in software engineering.",
+  "For now I make websites and applications in my spare time.",
+  "                                                                ",
+];
+
+const symphonAI = "https://github.com/symphonAI";
+const projectsText = [
+  "  ",
+  "Most of my projects are hidden because of I am studying at university. ",
+  "However I did make a music recommendation powered by AI and Spotify",
+  'for a hackathon called <a href="' + symphonAI + '" target="_blank">symphonAI</a>.',
+  "  ",
+  "For this project I ustilised the Spotify API, ChatGPT4 API, React, and",
+  "a serverless backend using AWS Lambda and API Gateway written in Go.",
+  "  ",
+];
+
+const skillsText = [
+  "  ",
+  "  Languages:    Go, Java, JavaScript, React, Python, HTML, CSS, SQL",
+  "  Frameworks:   React, Node.js, Express.JS, Next.JS, Bootstrap, Tailwind, Material-UI",
+  "  Databases:    MongoDB, PostgreSQL",
+  "  Tools:        AWS, Git, GitHub, Postman, VS Code",
+  "  ",
+];
+
+const contactText = [
+  "  ",
+  "  LinkedIn:  <a href='" + linkedin + "' target='_blank'>Daniel Gooden</a>",
+  "  GitHub:    <a href='" + github + "' target='_blank'>dangoodie</a>",
+  "  Email:     <a href='mailto:" + email + "'>" + email + "</a>",
+  //"Resume: <a href='" + resume + "' target='_blank'>resume</a>",
+  "  ",
+];
