@@ -11,7 +11,7 @@ terminalOutput.setAttribute("id", "terminalOutput");
 terminal.appendChild(terminalOutput);
 
 const terminaInputPrefix = document.createElement("span");
-terminaInputPrefix.innerHTML = "visitor@dangoodie > ";
+terminaInputPrefix.innerHTML = "visitor@dangoodie.github.io > ";
 terminaInputPrefix.setAttribute("id", "terminalInputPrefix");
 terminal.appendChild(terminaInputPrefix);
 
@@ -27,7 +27,7 @@ terminalInputAlias.focus();
 
 // create the initial text for the terminalOutput
 setTimeout(function () {
-  loopAsciiLines(asciiArt, "", 1);
+  loopAsciiLines(asciiArt, "", 10);
 }, 100);
 
 // create the logic for updating the innerHTML of the terminalOutput whenever the user types in the terminalInput
@@ -53,7 +53,7 @@ updateCaret(); // call immediately to set the initial caret position
 
 terminalInputAlias.addEventListener("input", updateCaret);
 
-terminalInputAlias.addEventListener("keydown", function (event) {
+terminalInputAlias.addEventListener("keyup", function (event) {
   if (event.key === "Enter") {
     currentInput = terminalInputAlias.value;
     handleCommand(currentInput);
@@ -70,7 +70,9 @@ terminalInputAlias.addEventListener("keydown", function (event) {
 
 function handleCommand(command) {
   const prefix = terminaInputPrefix.innerHTML;
-  switch (command) {
+  sanitisedCommand = command.toLowerCase().trim();
+
+  switch (sanitisedCommand) {
     case "help":
       terminalOutput.innerHTML += prefix + command + "<br>";
       loopLines(helpText, "", 10);
@@ -172,7 +174,7 @@ function addLine(text, style, time) {
 
 function loopAsciiLines(name, style, time) {
   name.forEach(function (item, index) {
-    addAsciiLine(item, style, index * time);
+    addAsciiLine(item, style, index * 1 + time);
   });
 }
 

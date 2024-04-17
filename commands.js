@@ -37,13 +37,15 @@ const asciiArt = [
 ];
 
 const helpText = [
-  "Available commands:",
+  "  ",
+  "  Available commands:",
   "  help         list all available commands",
   "  about        learn more about me",
   "  projects     list all projects",
   "  skills       list all skills",
   "  contact      display contact information",
   "  clear        clear the terminal",
+  "  ",
 ];
 
 const aboutText = [
@@ -68,7 +70,10 @@ const projectsText = [
   "  ",
   "Most of my projects are hidden because of I am studying at university. ",
   "However I did make a music recommendation powered by AI and Spotify",
-  'for a hackathon called <a href="' + symphonAI + '" target="_blank">SymphonAI</a>.',
+  'for a hackathon called <a href="' + symphonAI + '" target="_blank">symphonAI</a>.',
+  "  ",
+  "For this project I ustilised the Spotify API, ChatGPT4 API, React, and",
+  "a serverless backend using AWS Lambda and API Gateway written in Go.",
   "  ",
 ];
 
