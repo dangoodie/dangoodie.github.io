@@ -1,33 +1,35 @@
 // Setting the variables for the terminal app
+import { asciiArt } from "./asciiArt.js";
+console.log(asciiArt);
 
-body = document.querySelector("body");
+const body = document.querySelector("body");
 
-terminal = document.createElement("div");
+const terminal = document.createElement("div");
 terminal.setAttribute("id", "terminal");
 body.appendChild(terminal);
 
-terminalOutput = document.createElement("p");
+const terminalOutput = document.createElement("pre");
 terminalOutput.setAttribute("id", "terminalOutput");
 terminal.appendChild(terminalOutput);
+terminalOutput.innerHTML = asciiArt;
 
-terminaInputPrefix = document.createElement("span");
-terminaInputPrefix.innerHTML = "squid@dangoodie > ";
+const terminaInputPrefix = document.createElement("span");
+terminaInputPrefix.innerHTML = "visitor@dangoodie > ";
 terminaInputPrefix.setAttribute("id", "terminalInputPrefix");
 terminal.appendChild(terminaInputPrefix);
 
-terminalInput = document.createElement("span");
+const terminalInput = document.createElement("span");
 terminalInput.setAttribute("id", "terminalInput");
 terminal.appendChild(terminalInput);
 
-terminalInputAlias = document.createElement("input");
+const terminalInputAlias = document.createElement("input");
 terminalInputAlias.setAttribute("type", "text");
 terminalInputAlias.setAttribute("id", "terminalInputAlias");
 terminal.appendChild(terminalInputAlias);
 terminalInputAlias.focus();
 
 // create the logic for updating the innerHTML of the terminalOutput whenever the user types in the terminalInput
-
-currentInput = "";
+let currentInput = "";
 
 function updateCaret() {
   var caretPos = terminalInputAlias.selectionStart;
@@ -48,7 +50,6 @@ function updateCaret() {
 updateCaret(); // call immediately to set the initial caret position
 
 terminalInputAlias.addEventListener("input", updateCaret);
-terminalInputAlias.addEventListener("keyup", updateCaret);
 
 terminalInputAlias.addEventListener("keyup", function (event) {
   if (event.key === "Enter") {
@@ -59,8 +60,8 @@ terminalInputAlias.addEventListener("keyup", function (event) {
     currentInput = "";
 
     terminalInputAlias.focus();
-    updateCaret();
   }
+  updateCaret();
 });
 
 // switch statement to handle the different commands that the user can input
