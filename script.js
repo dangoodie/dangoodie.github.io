@@ -105,6 +105,8 @@ function handleCommand(command) {
       break;
     default:
       terminalOutput.innerHTML += prefix + command + " command not found<br>";
+      document.getElementById("terminal").scrollTop =
+        document.getElementById("terminal").scrollHeight;
   }
 }
 
