@@ -2,7 +2,7 @@
 const currentYear = new Date().getFullYear();
 
 const asciiArt = [
-  "© " +currentYear +" Dan Gooden. All Rights Reserved.",
+  "© " +currentYear +" Daniel Gooden. All Rights Reserved.",
   "+-------------------------------------------------------------------------------------+",
   "|      ___           ___           ___                       ___           ___        |",
   "|     /\\  \\         /\\  \\         /\\__\\          ___        /\\  \\         /\\__\\       |",
@@ -35,12 +35,11 @@ const asciiArt = [
 
 const helpText = [
   "Available commands:",
-  "help: list all available commands",
-  "clear: clear the terminal",
-  "whoami: learn more about me",
-  "projects: list all projects",
-  "skills: list all skills",
-  "resume: display resume",
-  "contact: display contact information",
-  "theme: change the theme",
+  "  help         list all available commands",
+  "  whoami       learn more about me",
+  "  projects     list all projects",
+  "  skills       list all skills",
+  "  resume       display resume",
+  "  contact      display contact information",
+  "  clear        clear the terminal",
 ];

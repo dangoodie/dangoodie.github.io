@@ -72,7 +72,8 @@ function handleCommand(command) {
   const prefix = terminaInputPrefix.innerHTML;
   switch (command) {
     case "help":
-      terminalOutput.innerHTML += prefix + "help: list all available commands<br>";
+      terminalOutput.innerHTML += prefix + command + "<br>";
+      loopLines(helpText, "", 80);
       break;
     case "whoami":
       terminalOutput.innerHTML += prefix + "whoami: information about me<br>";
@@ -89,9 +90,9 @@ function handleCommand(command) {
     case "contact":
       terminalOutput.innerHTML += prefix + "contact: display contact information<br>";
       break;
-    case "theme":
-      terminalOutput.innerHTML += prefix + "theme: change the theme<br>";
-      break;
+    // case "theme":
+    //   terminalOutput.innerHTML += prefix + "theme: change the theme<br>";
+    //   break;
     case "clear":
       terminalOutput.innerHTML = "";
       break;
