@@ -88,7 +88,8 @@ function handleCommand(command) {
       terminalOutput.innerHTML += prefix + "skills: list all skills<br>";
       break;
     case "contact":
-      terminalOutput.innerHTML += prefix + "contact: display contact information<br>";
+      terminalOutput.innerHTML +=
+        prefix + "contact: display contact information<br>";
       break;
     // case "theme":
     //   terminalOutput.innerHTML += prefix + "theme: change the theme<br>";
@@ -99,7 +100,6 @@ function handleCommand(command) {
     default:
       terminalOutput.innerHTML += prefix + command + " command not found<br>";
   }
-
 }
 
 // event listener for the blur event on the terminalInputAlias
@@ -113,20 +113,30 @@ body.addEventListener("click", function () {
 
 // function to add a line to the terminalOutput with a specific style and time with typing effect
 function addLine(text, style, time) {
-  const pre = document.createElement('pre');
+  const pre = document.createElement("pre");
   pre.style = style;
   terminalOutput.appendChild(pre);
   const increment = 10;
 
+  const randomChar = () =>
+    String.fromCharCode(Math.floor(Math.random() * 94) + 33);
+
   for (let i = 0; i < text.length; i++) {
     setTimeout(function () {
-      pre.innerHTML += text.charAt(i) === " " ? "&nbsp;" : text.charAt(i);
+      const span = document.createElement("span");
+      span.innerHTML = text.charAt(i) === " " ? "&nbsp;" : randomChar();
+      pre.appendChild(span);
+
+      setTimeout(function () {
+        span.innerHTML = text.charAt(i) === " " ? "&nbsp;" : text.charAt(i);
+      }, Math.floor(Math.random() * time) + 10);
     }, time + i * increment);
   }
 }
 // function to loop through the lines of text and add them to the terminalOutput
 function loopLines(lines, style, time) {
+  increment = 10;
   lines.forEach((line, index) => {
-    addLine(line, style, time * index);
+    addLine(line, style, time  + index * increment);
   });
 }
