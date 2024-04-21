@@ -1,5 +1,4 @@
 // Setting the variables for the terminal app
-
 const body = document.querySelector("body");
 
 const terminal = document.createElement("div");
@@ -11,7 +10,7 @@ terminalOutput.setAttribute("id", "terminalOutput");
 terminal.appendChild(terminalOutput);
 
 const terminaInputPrefix = document.createElement("span");
-terminaInputPrefix.innerHTML = "visitor@dangoodie.github.io > ";
+terminaInputPrefix.innerHTML = "guest@dangoodie.github.io:~$ ";
 terminaInputPrefix.setAttribute("id", "terminalInputPrefix");
 terminal.appendChild(terminaInputPrefix);
 
