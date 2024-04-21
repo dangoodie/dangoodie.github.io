@@ -44,6 +44,7 @@ const helpText = [
   "  projects     list all projects",
   "  skills       list all skills",
   "  contact      display contact information",
+  "  resume       print out my resume",
   "  banner       displays the ascii banner",
   "  clear        clear the terminal",
   "  ",

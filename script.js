@@ -85,10 +85,11 @@ function handleCommand(command) {
       terminalOutput.innerHTML += prefix + command + "<br>";
       loopLines(projectsText, "", 10);
       break;
-    // case "resume":
-    //   terminalOutput.innerHTML += prefix + command + "<br>";
-    //   loopLines(resumeText, "", 10);
-    //   break;
+    case "resume":
+      terminalOutput.innerHTML += prefix + command + "<br>";
+      loopLines(["Printing resume..."], "", 10);
+      setTimeout(function () {window.open("https://dangoodie.github.io/resume.pdf", "_blank");}, 1000);
+      break;
     case "skills":
       terminalOutput.innerHTML += prefix + command + "<br>";
       loopLines(skillsText, "", 10);
