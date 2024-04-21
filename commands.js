@@ -38,12 +38,13 @@ const asciiArt = [
 
 const helpText = [
   "  ",
-  "  Available commands:",
+  "Available commands:",
   "  help         list all available commands",
   "  about        learn more about me",
   "  projects     list all projects",
   "  skills       list all skills",
   "  contact      display contact information",
+  "  banner       displays the ascii banner",
   "  clear        clear the terminal",
   "  ",
 ];

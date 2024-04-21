@@ -97,6 +97,10 @@ function handleCommand(command) {
       terminalOutput.innerHTML += prefix + command + "<br>";
       loopLines(contactText, "", 10);
       break;
+    case "banner":
+      terminalOutput.innerHTML += prefix + command + "<br>";
+      loopAsciiLines(asciiArt, "", 10);
+      break;
     // case "theme":
     //   terminalOutput.innerHTML += prefix + "theme: change the theme<br>";
     //   break;
