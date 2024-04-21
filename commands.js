@@ -89,7 +89,7 @@ const projectsText = [
   "  ",
   "  Prisoners AID ACT    <a href='https://www.paact.org.au/' target='_blank'>paact.org.au</a>",
   "    - A website for the non-profit organisation Prisoners Aid ACT.",
-  "      I helped maintain and added sp,e features to the website as a volunteer",
+  "      I helped maintain and added some features to the website as a volunteer",
   "      and mentor with Code Sydney.",
   "    - Tech stack: Next.js, AWS S3",
   "  ",
