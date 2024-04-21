@@ -10,5 +10,5 @@ A terminal style website. I took inspiration from [ForrestKnight](https://www.yo
 * resume - initiates download of my most up to date resume
 * skills - a list of skills with rankings
 * contact - send my email
-* theme - change between preset themes
+* banner - displays the banner text
 * clear - clears the terminal screen
