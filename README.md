@@ -7,8 +7,8 @@ A terminal style website. I took inspiration from [ForrestKnight](https://www.yo
 * help - displays all available commands
 * whoami - display background information
 * projects - list of projects that I have worked on
-* resume - initiates download of my most up to date resume
+* resume - downloads my resume
 * skills - a list of skills with rankings
-* contact - send my email
+* contact - displays my contact details 
 * banner - displays the banner text
 * clear - clears the terminal screen
