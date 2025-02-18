@@ -97,7 +97,7 @@ const projectsText = [
   "      and mentor with Code Sydney.",
   "    - Tech stack: Next.js, AWS S3",
   "  ",
-  "  Pokedex REPL         <a href='https://github.com/dangoodie/pokedex-repl' target='_blank'>github.com/dangoodie/pokedex-repl</a>",
+  "  Pokedex              <a href='https://github.com/dangoodie/pokedex' target='_blank'>github.com/dangoodie/pokedex-repl</a>",
   "    - A command line interface that allows users to search for Pokemon in regions",
   "      information using the PokeAPI.",
   "    - Tech stack: Go",
