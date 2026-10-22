@@ -10,7 +10,8 @@ terminalOutput.setAttribute("id", "terminalOutput");
 terminal.appendChild(terminalOutput);
 
 const terminaInputPrefix = document.createElement("span");
-terminaInputPrefix.innerHTML = "guest@dangoodie.github.io:~$ ";
+const siteHost = location.hostname.replace(/^www\./, "") || "localhost";
+terminaInputPrefix.innerHTML = "guest@" + siteHost + ":~$ ";
 terminaInputPrefix.setAttribute("id", "terminalInputPrefix");
 terminal.appendChild(terminaInputPrefix);
 
@@ -87,7 +88,7 @@ function handleCommand(command) {
     case "resume":
       terminalOutput.innerHTML += prefix + command + "<br>";
       loopLines(["Printing resume..."], "", 10);
-      setTimeout(function () {window.open("https://dangoodie.github.io/resume.pdf", "_blank");}, 1000);
+      setTimeout(function () {window.open("resume.pdf", "_blank");}, 1000);
       break;
     case "skills":
       terminalOutput.innerHTML += prefix + command + "<br>";

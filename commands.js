@@ -78,6 +78,15 @@ const aboutText = [
 
 const projectsText = [
   "  ",
+  "  Moree Flood Viewer   <a href='https://moree-flood.danielgooden.com' target='_blank'>moree-flood.danielgooden.com</a>",
+  "    - An interactive 2D/3D flood map for Moree, NSW, built with the NSW SES as my",
+  "      University of New England capstone project. Explore modelled flood extents,",
+  "      water depths and road closures by return period.",
+  "    - Flood grids are processed by a Python pipeline into cloud-optimised GeoTIFFs",
+  "      and vector tiles, served as static data so the viewer runs with no backend.",
+  "    - Tech stack: TypeScript, React, MapLibre, deck.gl, Vite, Python (rasterio),",
+  "      Cloudflare Pages + R2",
+  "  ",
   "  symphonAI            <a href='https://github.com/symphonAI' target='_blank'>github.com/symphonAI</a>",
   "    - A music recommendation engine that uses machine learning to",
   "      recommend music based on user preferences.",
